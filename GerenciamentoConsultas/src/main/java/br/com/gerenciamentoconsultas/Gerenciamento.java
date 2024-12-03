@@ -17,6 +17,7 @@ public class Gerenciamento implements CrudGerenciamento{
 
     @Override
     public void cadastrarPaciente(Paciente p) {
+        listPacientes.add(p);
     }
 
     @Override
@@ -41,5 +42,9 @@ public class Gerenciamento implements CrudGerenciamento{
 
     public Gerenciamento(){
     }
-    
+
+    @Override
+    public void listarConsultasPaciente(LinkedList<Consulta> listconsulta) {
+    }
+
 }

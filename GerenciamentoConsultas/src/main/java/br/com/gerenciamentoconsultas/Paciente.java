@@ -44,6 +44,10 @@ public class Paciente extends Pessoa {
     public void setConvenio(String convenio) {
         this.convenio = convenio;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "historicoConsultas=" + historicoConsultas + ", convenio=" + convenio + '}';
+    }
     
 }

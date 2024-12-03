@@ -76,6 +76,11 @@ public class Consulta {
     public void setConsultorio(Consultorio consultorio) {
         this.consultorio = consultorio;
     }
+
+    @Override
+    public String toString() {
+        return "Consulta{" + "medico=" + medico + ", paciente=" + paciente + ", horarioEdata=" + horarioEdata + ", diagnostico=" + diagnostico + ", situacaoConsulta=" + situacaoConsulta + ", consultorio=" + consultorio + '}';
+    }
     
     
 }

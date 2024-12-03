@@ -74,6 +74,11 @@ public class Endereco {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "rua=" + rua + ", bairro=" + bairro + ", numero=" + numero + ", cep=" + cep + ", estado=" + estado + ", cidade=" + cidade + '}';
+    }
     
     
 }

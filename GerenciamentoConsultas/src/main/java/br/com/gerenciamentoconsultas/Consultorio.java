@@ -45,6 +45,11 @@ public class Consultorio {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return "Consultorio{" + "nomeLegal=" + nomeLegal + ", cnpj=" + cnpj + ", endereco=" + endereco + '}';
+    }
     
     
 }

@@ -4,6 +4,8 @@
  */
 package br.com.gerenciamentoconsultas;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author laral
@@ -15,4 +17,5 @@ public interface CrudGerenciamento {
     public void alterarDadosPacienet(Paciente p);
     public void alterarDadosMedico(Medico m);
     public void alterarDadosConsulta(Consulta c);
+    public void listarConsultasPaciente(LinkedList<Consulta>listconsulta);
 }
