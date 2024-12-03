@@ -1,9 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package br.com.gerenciamentoconsultas;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -14,31 +14,42 @@ public class GerenciamentoConsultas {
 
     public static void main(String[] args) {
         Gerenciamento g = new Gerenciamento();
+       
         
-        Scanner s = new Scanner(System.in);
         int opcao = 1;
         
-        while(opcao >= 1 && opcao <= 7){
-            System.out.println("----------------------------------");
-            System.out.println("1- Cadastrar paciente");
-            System.out.println("2- Cadastrar médico");
-            System.out.println("3- Cadastrar consulta");
-            System.out.println("4- Alterar dados do paciente");
-            System.out.println("5- Alterar dados do médico");
-            System.out.println("6- Alterar dados da consulta");
-            System.out.println("7- Listar consultas do paciente");
-            System.out.println("8- Sair \n");
-            opcao = s.nextInt();
-            s.nextLine();
-            
+        while(opcao >= 1 && opcao <= 6){
+        	 try {
+                 opcao = g.menu();  // Chama o menu para obter a opção
+             } catch (InputMismatchException e) {
+                 System.out.println("Erro: Entrada errada");   
+                 opcao = 7;
+             }            
             switch(opcao){
                 case 1:
-                    System.out.print("Nome: ");
-                    String nome = s.nextLine();
-                    Paciente p = new Paciente();
-                    p.setConvenio(nome);
+                	Paciente p = g.setarPaciente();			                    
                     g.cadastrarPaciente(p);
                     break;
+                case 2:
+                	Medico m = g.setarMedico();
+                	g.cadastrarMedico(m);
+                	break;
+                case 3:
+                	Consulta c = g.setarConsulta();
+                	g.cadastrarConsulta(c);
+                	break;
+                case 4:
+                	g.confirmarPresenca();
+                	break;
+                case 5:
+                	g.setarDiagnostico();
+                	break;
+                case 6: 
+                	g.listarConsultasPaciente();
+                case 7:
+                	break;
+                default: 
+                	System.out.println("Opição Inválida");
             }
         }
     }
