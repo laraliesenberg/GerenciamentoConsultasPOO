@@ -43,17 +43,17 @@ public class Gerenciamento implements CrudGerenciamento {
 
 	public Endereco setarEndereco() {
 		Endereco endereco = new Endereco();
-		System.out.print("Rua : ");
+		System.out.print("Rua: ");
 		endereco.setRua(s.nextLine());
-		System.out.println("Bairro : ");
+		System.out.print("Bairro: ");
 		endereco.setBairro(s.nextLine());
-		System.out.println("Estado : ");
+		System.out.print("Estado: ");
 		endereco.setEstado(s.nextLine());
-		System.out.println("Cidade : ");
+		System.out.print("Cidade: ");
 		endereco.setCidade(s.nextLine());
-		System.out.println("Cep :");
+		System.out.print("Cep: ");
 		endereco.setCep(s.nextInt());
-		System.out.println("Numero Residencia:");
+		System.out.print("Numero Residencia: ");
 		endereco.setNumero(s.nextInt());
 		s.nextLine();
 		return endereco;
@@ -63,12 +63,12 @@ public class Gerenciamento implements CrudGerenciamento {
 		Pessoa p = new Pessoa();
 		System.out.print("Nome: ");
 		p.setNome(s.nextLine());
-		System.out.println("Telefone: ");
+		System.out.print("Telefone: ");
 		p.setTelefone(s.nextInt());
-		System.out.println("CPF:");
+		System.out.print("CPF: ");
 		p.setCpf(s.nextInt());
 		s.nextLine();
-		System.out.println("Data De nascimento XX/XX/XXXX");
+		System.out.print("Data De nascimento XX/XX/XXXX: ");
 		String dataNasc = s.nextLine();
 		try {
 			p.setDataNascimento(format.parse(dataNasc));
@@ -90,7 +90,7 @@ public class Gerenciamento implements CrudGerenciamento {
 		paciente.setTelefone(pessoa.getTelefone());
 		
 		
-		System.out.println("Convenio");
+		System.out.print("Convenio: ");
 		paciente.setConvenio(s.nextLine());
 	
 		return paciente;
@@ -102,39 +102,40 @@ public class Gerenciamento implements CrudGerenciamento {
 		LocalDateTime dateTime = LocalDateTime.parse(s.nextLine(), formatter);
 		consulta.setHorarioEdata(dateTime);
 		consulta.setConsultorio(setarConsultorio());
-		System.out.println("CPF do paciente");
+		System.out.print("CPF do paciente: ");
 		int cpf = s.nextInt();
 		s.nextLine();
+                
 		if (listPacientes.isEmpty()) {
-			System.out.println("Paciente Não Cadastrado");
+			System.out.println("Paciente não cadastrado");
 			return null;
 		}
 		for (Paciente p : listPacientes) {
 			if (p.getCpf() == cpf) {
 				consulta.setPaciente(p);
 			} else {
-				System.out.println("Paciente Não Cadastrado");
+				System.out.println("Paciente não cadastrado");
 				return null;
 			}
 		}
-		System.out.println("Informe a especialização");
+		System.out.println("Informe a especialização: ");
 		String especializacao = s.nextLine();
 		for (Medico medico : listMedicos) {
 			if (medico.getEspecializacao().equals(especializacao)) {
-				System.out.println("Nome : " + medico.getNome() + " CRM : " + medico.getCrm());
+				System.out.println("Nome: " + medico.getNome() + ", CRM: " + medico.getCrm());
 			}
 		}
-		System.out.println("CRM do Medico");
+		System.out.println("CRM do Médico: ");
 		int crm = s.nextInt();
 		if (listMedicos.isEmpty()) {
-			System.out.println("Medico Não Cadastrado");
+			System.out.println("Médico não cadastrado");
 			return null;
 		}
 		for (Medico m : listMedicos) {
 			if (m.getCrm() == crm) {
 				consulta.setMedico(m);
 			} else {
-				System.out.println("Medico Não Cadastrado");
+				System.out.println("Médico não cadastrado");
 				return null;
 			}
 		}
@@ -152,25 +153,21 @@ public class Gerenciamento implements CrudGerenciamento {
 		medico.setTelefone(pessoa.getTelefone());
 		medico.setEndereco(pessoa.getEndereco());
 		s.nextLine();
-		System.out.println("Especialização :");
-		
+		System.out.println("Especialização: ");
 		medico.setEspecializacao(s.nextLine());
-		System.out.println("Email");
+		System.out.println("Email: ");
 		medico.setEmail(s.nextLine());
-		System.out.println("CRM :");
+		System.out.println("CRM: ");
 		medico.setCrm(s.nextInt());
 
 		return medico;
-
 	}
-
-	
 
 	public Consultorio setarConsultorio() {
 		Consultorio consultorio = new Consultorio();
-		System.out.println("Nome legal :");
+		System.out.println("Nome legal: ");
 		consultorio.setNomeLegal(s.nextLine());
-		System.out.println("CNPJ :");
+		System.out.println("CNPJ: ");
 		consultorio.setCnpj(s.nextInt());
 		s.nextLine();
 		consultorio.setEndereco(setarEndereco());
@@ -180,12 +177,12 @@ public class Gerenciamento implements CrudGerenciamento {
 
 	public boolean confirmarPresenca() {
 		if(listPacientes.isEmpty()&&listMedicos.isEmpty()&&listConsultas.isEmpty()) {
-			System.out.println("Não é posivel Cadastrar");
-			
+			System.out.println("Não é possível cadastrar");	
 		}
+                
 		System.out.println("CPF:");
 		int cpf = s.nextInt();
-		int i = 0;
+                int i = 0;
 		Paciente paciente = null;
 		for (Paciente p : listPacientes) {
 			if (p.getCpf() == cpf) {
@@ -200,26 +197,23 @@ public class Gerenciamento implements CrudGerenciamento {
 		int index = 0;
 		int validador = 0; 
 		for (Consulta consulta : listConsultas) {
-
 			if (consulta.getPaciente().getCpf() == cpf && consulta.isSituacaoConsulta()==false) {
 				index = listConsultas.indexOf(consulta);
-				System.out.println("Numero da Consulta :" + index + " Data " + consulta.getHorarioEdata());
+				System.out.println("Número da Consulta: " + index + " Data: " + consulta.getHorarioEdata());
 				validador = 1;
 			} 
 
 		}
 		if(validador==0) {
-			System.out.println("Não Ha consultas");
+			System.out.println("Não há consultas");
 			return false;
 		}
 		Consulta consulta = listConsultas.get(index);
 		consulta.setSituacaoConsulta(true);
-		;
-		System.out.println("Deseja alterar qual consulta");
+		System.out.println("Informe qual consulta você quer registrar: ");
 		int posicao = s.nextInt();
 		listConsultas.set(posicao, consulta);
 		return true;
-
 	}
 
 	public void setarDiagnostico() {
@@ -228,16 +222,16 @@ public class Gerenciamento implements CrudGerenciamento {
 		for (int i = 0; i < listConsultas.size(); i++) {
 			Consulta consulta = listConsultas.get(i);
 			if (consulta.getPaciente().getCpf() == cpf) {
-				System.out.println("Posição: " + i + " | Data da consulta: " + consulta.getHorarioEdata());
+				System.out.println("Número da consulta: " + i + " | Data da consulta: " + consulta.getHorarioEdata());
 			}
 		}
-		System.out.println("Informe qual consulta voce quer alterar");
+		System.out.println("Informe qual consulta você quer alterar: ");
 		int opcao = s.nextInt();
 		s.nextLine();
 		int i = 0;
 		for (Consulta consulta : listConsultas) {
 			if (opcao == i) {
-				System.out.println("Diagnostico : ");
+				System.out.println("Diagnóstico: ");
 				consulta.setDiagnostico(s.nextLine());
 			}
 			i++;
@@ -254,10 +248,9 @@ public class Gerenciamento implements CrudGerenciamento {
 				System.out.println(consulta);
 				i++;
 			}
-
 		}
 		if(i==0) {
-			System.out.println("Não ha consultas");
+			System.out.println("Não há consultas");
 		}
 	}
 
@@ -319,7 +312,7 @@ public class Gerenciamento implements CrudGerenciamento {
 		listMedicos.add(medico2);
 	}
 
-	public void setarObjetiConsulta() {
+	public void setarObjetoConsulta() {
 		Endereco endereco = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "SP", "São Paulo");
 		String dataString = "15/12/1972";
 		Medico medico = null;
@@ -331,7 +324,6 @@ public class Gerenciamento implements CrudGerenciamento {
 			e.printStackTrace();
 		}
 		
-
 		// Criando o paciente
 		Endereco enderecoPaciente = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "Estado Exemplo",
 				"Cidade Exemplo");
@@ -349,12 +341,10 @@ public class Gerenciamento implements CrudGerenciamento {
 		paciente.setEndereco(enderecoPaciente);
 		paciente.setTelefone(457545454);
 		
-
 		Endereco enderecoConsultorio = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "Estado Exemplo",
 				"Cidade Exemplo");
 		Consultorio consultorio = new Consultorio("Consultório 101",454545, enderecoConsultorio);
 
-		
 		Consulta consulta = new Consulta(medico, 
 				paciente, 
 				LocalDateTime.of(2024, 12, 10, 14, 30), 
@@ -373,7 +363,6 @@ public class Gerenciamento implements CrudGerenciamento {
 		    e.printStackTrace();
 		}
 
-		
 		Endereco enderecoPaciente2 = new Endereco("Rua dos Pacientes", "Jardim das Flores", 789, 44556677, "SP", "Campinas");
 		Paciente paciente2 = new Paciente();
 		paciente2.setNome("Maria Oliveira");
@@ -388,12 +377,9 @@ public class Gerenciamento implements CrudGerenciamento {
 		paciente2.setEndereco(enderecoPaciente2);
 		paciente2.setTelefone(998877665);
 		
-
-		
 		Endereco enderecoConsultorio2 = new Endereco("Rua do Consultório", "Centro Médico", 321, 55667788, "MG", "Belo Horizonte");
 		Consultorio consultorio2 = new Consultorio("Consultório 202", 454546, enderecoConsultorio2);
 
-		
 		Consulta consulta2 = new Consulta(
 		        medico2, 
 		        paciente2, 
@@ -401,26 +387,20 @@ public class Gerenciamento implements CrudGerenciamento {
 		        "Diagnóstico inicial: Enxaqueca Crônica", 
 		        consultorio2 
 		);
-
-	
 		listConsultas.add(consulta2);
-
 	}
 
 	public void listarPacientes() {
-		System.out.println("------ Paciente ------");
+		System.out.println("-------------- Pacientes --------------");
 		for (Paciente p : listPacientes) {
-			System.out.println("Nome : "+p.getNome() + " CPF : "+ p.getCpf() +"\n");
-		}
-	
-		
+			System.out.println("Nome: "+p.getNome() + ", CPF: "+ p.getCpf());
+		}	
 	}
 
 	public void listarMedicos() {
-		System.out.println("------ Medico ------");
+		System.out.println("-------------- Médicos --------------");
 		for (Medico m : listMedicos) {
-			System.out.println("Nome : "+m.getNome() + " CRM : "+ m.getCrm() + " Especialização : " + m.getEspecializacao()+"\n");
-		}
-		
+			System.out.println("Nome: "+m.getNome() + ", CRM: "+ m.getCrm() + ", Especialização: " + m.getEspecializacao());
+		}	
 	}
 }

@@ -70,7 +70,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return " Nome " + nome + "   Telefone :" + telefone + "   Cpf : "  + cpf + "   DataNascimento : " + dataNascimento + " Endereco :" + endereco ;
+        return " Nome: " + nome + "   Telefone: " + telefone + "   Cpf: "  + cpf + "   DataNascimento: " + dataNascimento + " Endereco: " + endereco ;
     }
     
     

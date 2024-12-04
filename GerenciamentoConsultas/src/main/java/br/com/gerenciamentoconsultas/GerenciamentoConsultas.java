@@ -18,7 +18,7 @@ public class GerenciamentoConsultas {
 		int opcao = 1;
 		g.setarObjetoPaciente();
 		g.setarObjetoMedico();
-		g.setarObjetiConsulta();
+		g.setarObjetoConsulta();
 		while (opcao >= 1 && opcao <= 8) {
 			try {
 				opcao = menu(); // Chama o menu para obter a opção
@@ -30,7 +30,6 @@ public class GerenciamentoConsultas {
 			case 1:
 				Paciente p = g.setarPaciente();
 				if (p != null) {
-					
 					g.cadastrarPaciente(p);
 				} else {
 					System.out.println("Ocorreu um erro");
@@ -47,9 +46,9 @@ public class GerenciamentoConsultas {
 				break;
 			case 3:
 				Consulta c = g.setarConsulta();
-				if(c!=null) {
+				if(c != null) {
 					g.cadastrarConsulta(c);
-				}else {
+				} else {
 					System.out.println("Ocorreu um erro");
 				}
 				break;
@@ -80,10 +79,10 @@ public class GerenciamentoConsultas {
 		System.out.println("2- Cadastrar médico");
 		System.out.println("3- Cadastrar consulta");
 		System.out.println("4- Registrar presença");
-		System.out.println("5- Inserir diagnostico");
+		System.out.println("5- Inserir diagnóstico");
 		System.out.println("6- Listar consultas do paciente");
 		System.out.println("7- Listar Pacientes");
-		System.out.println("8- Listar Medicos");
+		System.out.println("8- Listar Médicos");
 		System.out.println("9- Sair ");
 		System.out.println("----------------------------------");
 		int opcao = s.nextInt();

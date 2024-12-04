@@ -41,7 +41,7 @@ public class Paciente extends Pessoa {
 
     @Override
     public String toString() {
-        return " Convenio :" + convenio ;
+        return ", Convenio: " + convenio ;
     }
     
 }

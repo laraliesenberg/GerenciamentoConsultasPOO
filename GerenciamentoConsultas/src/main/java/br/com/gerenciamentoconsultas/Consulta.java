@@ -80,7 +80,7 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "Consulta : "  + medico + " Paciente : " + paciente + " Horario da consulta " + horarioEdata + " Diagnostico : " + diagnostico + " SituacaoConsulta : " + situacaoConsulta + " Consultorio : " + consultorio + '}';
+        return "Consulta: "  + medico + ", Paciente: " + paciente + ", Horario da consulta: " + horarioEdata + "\nDiagnóstico: " + diagnostico + ", SituacaoConsulta: " + situacaoConsulta + ", Consultorio: " + consultorio + '}';
     }
     
     
