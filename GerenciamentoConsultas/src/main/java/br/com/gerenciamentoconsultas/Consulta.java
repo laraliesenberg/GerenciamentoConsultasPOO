@@ -5,6 +5,7 @@
 package br.com.gerenciamentoconsultas;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -13,12 +14,12 @@ import java.time.LocalDate;
 public class Consulta {
     private Medico medico;
     private Paciente paciente;
-    private LocalDate horarioEdata;
+    private LocalDateTime horarioEdata;
     private String diagnostico;
     private boolean situacaoConsulta = false;
     private Consultorio consultorio;
 
-    public Consulta(Medico medico, Paciente paciente, LocalDate horarioEdata, String diagnostico, Consultorio consultorio) {
+    public Consulta(Medico medico, Paciente paciente, LocalDateTime horarioEdata, String diagnostico, Consultorio consultorio) {
         this.medico = medico;
         this.paciente = paciente;
         this.horarioEdata = horarioEdata;
@@ -45,12 +46,12 @@ public class Consulta {
         this.paciente = paciente;
     }
 
-    public LocalDate getHorarioEdata() {
+    public LocalDateTime getHorarioEdata() {
         return horarioEdata;
     }
 
-    public void setHorarioEdata(LocalDate horarioEdata) {
-        this.horarioEdata = horarioEdata;
+    public void setHorarioEdata(LocalDateTime dateTime) {
+        this.horarioEdata = dateTime;
     }
 
     public String getDiagnostico() {
@@ -79,7 +80,7 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "Consulta{" + "medico=" + medico + ", paciente=" + paciente + ", horarioEdata=" + horarioEdata + ", diagnostico=" + diagnostico + ", situacaoConsulta=" + situacaoConsulta + ", consultorio=" + consultorio + '}';
+        return "Consulta : "  + medico + " Paciente : " + paciente + " Horario da consulta " + horarioEdata + " Diagnostico : " + diagnostico + " SituacaoConsulta : " + situacaoConsulta + " Consultorio : " + consultorio + '}';
     }
     
     

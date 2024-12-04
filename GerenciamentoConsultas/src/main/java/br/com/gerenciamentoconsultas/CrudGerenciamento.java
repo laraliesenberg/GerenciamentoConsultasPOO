@@ -8,6 +8,6 @@ public interface CrudGerenciamento {
     public void cadastrarMedico(Medico m);
     public void cadastrarConsulta(Consulta c);
     public void setarDiagnostico();
-    public void confirmarPresenca();
+    public boolean confirmarPresenca();
     public void listarConsultasPaciente();
 }
