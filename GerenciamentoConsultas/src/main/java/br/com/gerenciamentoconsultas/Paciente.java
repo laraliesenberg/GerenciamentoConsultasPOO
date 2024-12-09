@@ -15,7 +15,7 @@ public class Paciente extends Pessoa {
    
     private String convenio;
 
-    public Paciente(String convenio, String nome, int telefone, int cpf, Date dataNascimento, Endereco endereco) {
+    public Paciente(String convenio, String nome, long telefone, long cpf, Date dataNascimento, Endereco endereco) {
         super(nome, telefone, cpf, dataNascimento, endereco);
        
         this.convenio = convenio;
@@ -41,7 +41,7 @@ public class Paciente extends Pessoa {
 
     @Override
     public String toString() {
-        return ", Convenio: " + convenio ;
+        return  super.toString() + " CPF: "+super.getCpf() + ", convenio: " + convenio + " \nENDEREÇO : " + super.getEndereco() ;
     }
     
 }

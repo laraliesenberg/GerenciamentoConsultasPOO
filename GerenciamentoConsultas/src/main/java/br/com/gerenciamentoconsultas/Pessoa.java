@@ -12,12 +12,12 @@ import java.util.Date;
  */
 public class Pessoa {
     private String nome;
-    private int telefone;
-    private int cpf;
+    private long telefone;
+    private long cpf;
     private Date dataNascimento;
     private Endereco endereco;
 
-    public Pessoa(String nome, int telefone, int cpf, Date dataNascimento, Endereco endereco) {
+    public Pessoa(String nome, long telefone, long cpf, Date dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
@@ -36,19 +36,19 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -70,8 +70,9 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return " Nome: " + nome + "   Telefone: " + telefone + "   Cpf: "  + cpf + "   DataNascimento: " + dataNascimento + " Endereco: " + endereco ;
+        return " Nome: " + nome + ", telefone: " + telefone ;
     }
+
     
     
 }
