@@ -29,8 +29,6 @@ public class Paciente extends Pessoa {
     public Paciente() {
     }
 
-   
-
     public String getConvenio() {
         return convenio;
     }
@@ -41,7 +39,7 @@ public class Paciente extends Pessoa {
 
     @Override
     public String toString() {
-        return  super.toString() + " CPF: "+super.getCpf() + ", convenio: " + convenio + " \nENDEREÇO : " + super.getEndereco() ;
+        return  super.toString() + " CPF: "+super.getCpf() + ", convenio: " + convenio + " \nENDEREÇO: " + super.getEndereco() ;
     }
     
 }

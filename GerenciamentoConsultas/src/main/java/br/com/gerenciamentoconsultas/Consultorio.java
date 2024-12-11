@@ -49,7 +49,7 @@ public class Consultorio {
 
 	@Override
 	public String toString() {
-		return  ", Nome Legal: " + nomeLegal + ", CNPJ: " + cnpj + ", Endereco: " + endereco;
+		return  "Nome Legal: " + nomeLegal + ", CNPJ: " + cnpj + ", Endereco: " + endereco;
 	}
 
 }

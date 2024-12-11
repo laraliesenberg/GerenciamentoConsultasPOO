@@ -68,7 +68,7 @@ public class GerenciamentoConsultas {
 				g.listarMedicos();
 				break;
 			default:
-				System.out.println("Opição Inválida");
+				System.out.println("Opção Inválida");
 			}
 		}
 	}

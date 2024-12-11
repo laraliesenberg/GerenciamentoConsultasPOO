@@ -28,13 +28,11 @@ public class Gerenciamento implements CrudGerenciamento {
     public void cadastrarPaciente(Paciente p) {
         listPacientes.add(p);
         System.out.println("Paciente Cadastrado");
-
     }
 
     public void cadastrarMedico(Medico m) {
         listMedicos.add(m);
         System.out.println("Medico Cadatrado");
-
     }
 
     public void cadastrarConsulta(Consulta c) {
@@ -99,7 +97,7 @@ public class Gerenciamento implements CrudGerenciamento {
 
     public Paciente setarPaciente() {
         Paciente paciente = new Paciente();
-        Pessoa pessoa = new Pessoa();
+        Pessoa pessoa;
         pessoa = setarPessoa();
         paciente.setCpf(pessoa.getCpf());
         paciente.setDataNascimento(pessoa.getDataNascimento());
@@ -271,7 +269,7 @@ public class Gerenciamento implements CrudGerenciamento {
         long cpf = 0;
         try {
             System.out.println("CPF:");
-            cpf = s.nextInt();
+            cpf = s.nextLong();
         } catch (NumberFormatException e) {
             System.out.println("Erro : A entrada informada não é um número");
         }
@@ -319,6 +317,20 @@ public class Gerenciamento implements CrudGerenciamento {
         }
         if (i == 0) {
             System.out.println("Não há consultas");
+        }
+    }
+    
+    public void listarPacientes() {
+        System.out.println("-------------- Pacientes --------------");
+        for (Paciente p : listPacientes) {
+            System.out.println("Nome: " + p.getNome() + ", CPF: " + p.getCpf());
+        }
+    }
+    
+    public void listarMedicos() {
+        System.out.println("-------------- Médicos --------------");
+        for (Medico m : listMedicos) {
+            System.out.println("Nome: " + m.getNome() + ", CRM: " + m.getCrm() + ", Especialização: " + m.getEspecializacao());
         }
     }
 
@@ -457,19 +469,4 @@ public class Gerenciamento implements CrudGerenciamento {
         );
         listConsultas.add(consulta2);
     }
-
-    public void listarPacientes() {
-        System.out.println("-------------- Pacientes --------------");
-        for (Paciente p : listPacientes) {
-            System.out.println("Nome: " + p.getNome() + ", CPF: " + p.getCpf());
-        }
-    }
-
-    public void listarMedicos() {
-        System.out.println("-------------- Médicos --------------");
-        for (Medico m : listMedicos) {
-            System.out.println("Nome: " + m.getNome() + ", CRM: " + m.getCrm() + ", Especialização: " + m.getEspecializacao());
-        }
-    }
-
 }
