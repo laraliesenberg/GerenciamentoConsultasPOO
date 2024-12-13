@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author laral
  */
 public class Gerenciamento implements CrudGerenciamento {
-
+ // A anotação Override na IDE eclipse não é nescessario  colocar 
     private LinkedList<Paciente> listPacientes = new LinkedList<Paciente>();
     private LinkedList<Medico> listMedicos = new LinkedList<Medico>();
     private LinkedList<Consulta> listConsultas = new LinkedList<Consulta>();
@@ -103,6 +103,7 @@ public class Gerenciamento implements CrudGerenciamento {
         paciente.setDataNascimento(pessoa.getDataNascimento());
         paciente.setNome(pessoa.getNome());
         paciente.setTelefone(pessoa.getTelefone());
+        paciente.setEndereco(pessoa.getEndereco());
 
         System.out.print("Convenio: ");
         paciente.setConvenio(s.nextLine());
@@ -369,12 +370,12 @@ public class Gerenciamento implements CrudGerenciamento {
     }
 
     public void setarObjetoMedico() {
-        Endereco endereco = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "SP", "São Paulo");
+        Endereco enderecoMedico = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "SP", "São Paulo");
         String dataString = "15/12/1972";
         Medico medico = null;
         try {
             medico = new Medico("Cardiologia", 12345, "medico.exemplo@email.com", "Dr. João Silva", 987654321,
-                    123456789, format.parse(dataString), endereco);
+                    123456789, format.parse(dataString), enderecoMedico);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -393,12 +394,12 @@ public class Gerenciamento implements CrudGerenciamento {
     }
 
     public void setarObjetoConsulta() {
-        Endereco endereco = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "SP", "São Paulo");
+        Endereco enderecoMedico = new Endereco("Rua Exemplo", "Bairro Exemplo", 123, 12345678, "SP", "São Paulo");
         String dataString = "15/12/1972";
         Medico medico = null;
         try {
             medico = new Medico("Cardiologia", 12345, "medico.exemplo@email.com", "Dr. João Silva", 987654321,
-                    123456789, format.parse(dataString), endereco);
+                    123456789, format.parse(dataString), enderecoMedico);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -433,7 +434,7 @@ public class Gerenciamento implements CrudGerenciamento {
         );
         listConsultas.add(consulta);
         //Segundo
-        Endereco enderecoMedico2 = new Endereco("Rua dos Médicos", "Centro", 456, 11223344, "RJ", "Rio de Janeiro");
+        Endereco enderecoMedico2 = new Endereco("Rua das Palmeiras", "Centro", 456, 11223344, "RJ", "Rio de Janeiro");
         String dataStringMedico2 = "20/05/1980";
         Medico medico2 = null;
         try {
@@ -443,7 +444,7 @@ public class Gerenciamento implements CrudGerenciamento {
             e.printStackTrace();
         }
 
-        Endereco enderecoPaciente2 = new Endereco("Rua dos Pacientes", "Jardim das Flores", 789, 44556677, "SP", "Campinas");
+        Endereco enderecoPaciente2 = new Endereco("Rua Coronel Antonio", "Jardim das Flores", 789, 44556677, "SP", "Campinas");
         Paciente paciente2 = new Paciente();
         paciente2.setNome("Maria Oliveira");
         paciente2.setCpf(987654321);
@@ -457,7 +458,7 @@ public class Gerenciamento implements CrudGerenciamento {
         paciente2.setEndereco(enderecoPaciente2);
         paciente2.setTelefone(998877665);
 
-        Endereco enderecoConsultorio2 = new Endereco("Rua do Consultório", "Centro Médico", 321, 55667788, "MG", "Belo Horizonte");
+        Endereco enderecoConsultorio2 = new Endereco("Rua XX de novembro", "Centro Médico", 321, 55667788, "MG", "Belo Horizonte");
         Consultorio consultorio2 = new Consultorio("Consultório 202", 454546, enderecoConsultorio2);
 
         Consulta consulta2 = new Consulta(
